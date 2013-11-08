@@ -6,14 +6,17 @@ public class SelecionSystem : MonoBehaviour {
 	public string Current_Selection = "Nothing";
 	
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
 		if (Input.GetMouseButtonDown(0))
 		{
 			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 			RaycastHit hit;
 			Physics.Raycast(ray, out hit);
 			Debug.Log("Current Selection: " + hit.transform.name); ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-			Current_Selection = hit.transform.name;
+			if(hit.transform.name != "Plane")
+			{
+				Current_Selection = hit.transform.name;
+			}
 		}
 
 		
