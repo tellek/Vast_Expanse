@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 
 Project("{06B6BF6A-6606-99D5-C797-C357E3E9B131}") = "Vast_Expanse", "Assembly-CSharp.csproj", "{AA4E6BDE-923A-C9F0-7695-34D07623C5D8}"
 EndProject
-Project("{06B6BF6A-6606-99D5-C797-C357E3E9B131}") = "Vast_Expanse", "Assembly-UnityScript.unityproj", "{0037DA2A-A842-6201-FA66-1418BC0FC338}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,15 +13,11 @@ Global
 		{AA4E6BDE-923A-C9F0-7695-34D07623C5D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AA4E6BDE-923A-C9F0-7695-34D07623C5D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AA4E6BDE-923A-C9F0-7695-34D07623C5D8}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0037DA2A-A842-6201-FA66-1418BC0FC338}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0037DA2A-A842-6201-FA66-1418BC0FC338}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0037DA2A-A842-6201-FA66-1418BC0FC338}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0037DA2A-A842-6201-FA66-1418BC0FC338}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
-	GlobalSection(MonoDevelopProperties) = preSolution
+												GlobalSection(MonoDevelopProperties) = preSolution
 		StartupItem = Assembly-CSharp.csproj
 		Policies = $0
 		$0.TextStylePolicy = $1
@@ -41,4 +35,5 @@ Global
 		$3.inheritsScope = text/plain
 		$3.scope = text/plain
 	EndGlobalSection
+
 EndGlobal
