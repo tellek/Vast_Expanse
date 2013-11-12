@@ -48,7 +48,7 @@ public class Worker : MonoBehaviour {
 			//
 			targetTransform = targetObject.transform;
 			targetPosition = targetObject.transform.position;
-			workTime = 5f; //Adjusted later based off multiple values.
+			workTime = 3f; //Adjusted later based off multiple values.
 			working = true;
 		}
 	}
@@ -94,7 +94,7 @@ public class Worker : MonoBehaviour {
 	{
 		Debug.Log("Worker: Choopping wood.");
 		yield return new WaitForSeconds (seconds);
-		Object.Destroy(targetObject);
+		GenTest.destroyed = true;
 		busy = false;
 		
 	}

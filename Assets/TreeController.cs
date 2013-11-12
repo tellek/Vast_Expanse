@@ -3,15 +3,23 @@ using System.Collections;
 
 public class TreeController : MonoBehaviour {
 	
-	public bool claimed;
+	public bool claimed, destroyed;
+	public Transform logs;
 	
-	// Use this for initialization
+	private bool gone;
+	
 	void Start () {
 	
 	}
 	
-	// Update is called once per frame
 	void Update () {
-	
+		if(destroyed == true && gone == false)
+		{
+			Instantiate(logs, transform.position, transform.rotation);
+			Transform.Destroy(gameObject);
+			gone = true;
+		}
 	}
+	
+
 }
