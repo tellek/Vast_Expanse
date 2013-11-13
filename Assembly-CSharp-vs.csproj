@@ -46,6 +46,11 @@
   <ItemGroup>
      <Compile Include="Assets\KnockOver.cs" />
      <Compile Include="Assets\Scripts\CameraFollow.cs" />
+     <Compile Include="Assets\Scripts\Citizen_Behavior.cs" />
+     <Compile Include="Assets\Scripts\Citizen_GetFood.cs" />
+     <Compile Include="Assets\Scripts\Citizen_GetMedical.cs" />
+     <Compile Include="Assets\Scripts\Citizen_GetRest.cs" />
+     <Compile Include="Assets\Scripts\Citizen_MoveTo.cs" />
      <Compile Include="Assets\Scripts\SelectionSystem.cs" />
      <Compile Include="Assets\Scripts\Worker.cs" />
      <Compile Include="Assets\Scripts\moveOnMouseClick.cs" />

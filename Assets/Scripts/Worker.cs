@@ -5,12 +5,12 @@ using System.Collections.Generic;
 public class Worker : MonoBehaviour {
 	
 	public bool busy, woodCutter, miner, builder;
-	public float woodCutterExp, minerExp, builderExp, health, hunger, energy;
+	public float woodCutterExp = 100, minerExp = 50, builderExp, health, hunger, energy;
 	public List<Vector3> actionList;
 	public float speed = 5f;
 	public float turnSpeed = 10f;
 	
-	private Vector3 targetPosition;
+	private Vector3 targetPosition, chopPoint;
 	private GameObject targetObject;
 	private Transform targetTransform;
 	private bool working;
@@ -22,16 +22,16 @@ public class Worker : MonoBehaviour {
 	}
 	
 	//
-	private TreeController GenTest;
+	private TreeController theTree;
 	//
 	
 	void Update () {
 		if(transform.position != targetPosition)
 		{
-			MoveTo(targetPosition);
+			MoveTo(targetObject, targetPosition);
 		}
 		
-		if(transform.position == targetPosition && working == true)
+		if(transform.position == chopPoint && working == true)
 		{
 			Debug.Log("Worker: Starting task.");
 			StartCoroutine(BeginWork(workTime));
@@ -43,10 +43,10 @@ public class Worker : MonoBehaviour {
 			busy = true;
 			targetObject = FindTree();
 			//
-			GenTest = targetObject.GetComponent<TreeController>();
-			GenTest.claimed = true;
+			theTree = targetObject.GetComponent<TreeController>();
+			theTree.claimed = true;
 			//
-			targetTransform = targetObject.transform;
+			//targetTransform = targetObject.transform;
 			targetPosition = targetObject.transform.position;
 			workTime = 3f; //Adjusted later based off multiple values.
 			working = true;
@@ -54,15 +54,20 @@ public class Worker : MonoBehaviour {
 	}
 	
 	//MOVEMENT AND ROTATION
-	void MoveTo(Vector3 target)
+	void MoveTo(GameObject treeObject, Vector3 target)
 	{
 		Quaternion _lookRotation;
 		Vector3 _direction;
 		
-		float step = speed * Time.deltaTime;
-		transform.position = Vector3.MoveTowards(transform.position, target, step);
+		foreach(Transform child in treeObject.transform)
+		{
+			chopPoint = child.transform.position;
+		}
 		
-		_direction = (targetTransform.position - transform.position).normalized;
+		float step = speed * Time.deltaTime;
+		transform.position = Vector3.MoveTowards(transform.position, chopPoint, step);
+		
+		_direction = (target - transform.position).normalized;
 		_lookRotation = Quaternion.LookRotation(_direction);
 		transform.rotation = Quaternion.Slerp(transform.rotation, _lookRotation, Time.deltaTime * turnSpeed);
 	}
@@ -77,10 +82,9 @@ public class Worker : MonoBehaviour {
 		{
 			Vector3 difference = aTree.transform.position - transform.position;
 			float thisDistance = difference.sqrMagnitude;
-			//
-			GenTest = aTree.GetComponent<TreeController>();
-			//
-			if(distance > thisDistance && GenTest.claimed == false)
+			theTree = aTree.GetComponent<TreeController>();
+
+			if(distance > thisDistance && theTree.claimed == false)
 			{
 				closestTree = aTree;
 				distance = thisDistance;
@@ -94,7 +98,7 @@ public class Worker : MonoBehaviour {
 	{
 		Debug.Log("Worker: Choopping wood.");
 		yield return new WaitForSeconds (seconds);
-		GenTest.destroyed = true;
+		theTree.destroyed = true;
 		busy = false;
 		
 	}
