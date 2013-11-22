@@ -1,7 +1,17 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class Citizen_Behavior : MonoBehaviour {
+	
+	public enum jobList {
+		None,
+		WoodCutter,
+		Miner,
+		Builder
+	};
+	public jobList currentJob;
+	
 	public double 
 		health = 100, maxHealth = 100,
 		hunger, maxHunger = 100,
@@ -31,14 +41,13 @@ public class Citizen_Behavior : MonoBehaviour {
 		double hungerPercent = (hunger / maxHunger) * 100;
 		double energyPercent = (energy / maxEnergy) * 100;
 		
-		if (restoring == true) { Debug.Log("Suck!"); } //Stay put.
+		if (restoring == true) {  } //Stay put.
 		//Priority 1: ALERT triggered. All worker citizens will run home until the alarm is disabled(maybe have to build an alarm?)
 		else if (alarmEnabled == true) {
 			selfRestore.Go("Home",speed, turnSpeed);
 		}
 		//Priority 2: If the Citizen is injured it will do this.
 		else if (healthPercent < 100) {
-			Debug.Log ("The Fuck?");
 			if(selfRestore.Go("Medical",speed, turnSpeed)) { restoring = true; }
 		}
 		//Priority 3: If the Citizen is hungry it will do this.
@@ -49,15 +58,7 @@ public class Citizen_Behavior : MonoBehaviour {
 		else if (energyPercent < 85) {
 			if(selfRestore.Go("Home",speed, turnSpeed)) { restoring = true; }
 		}
-		//Priority 5: If there are resources related to it's job on the field, it will do this.
-		//else if () {
-		//	
-		//}
-		//Priority 6: If there are locations to do it's currently assigned job, it will do this.
-		//else if () {
-		//	
-		//}
-		//Priority 7: If there is nothing to do the Citizen will do this.
+		//Priority 5: Do work
 		else {
 			Idle(secondsWillIdle);
 		}
@@ -90,4 +91,5 @@ public class Citizen_Behavior : MonoBehaviour {
 		if(energy > maxEnergy) { energy = maxEnergy; }
 		if(energy < 0) { energy = 0; }
 	}
+	
 }
