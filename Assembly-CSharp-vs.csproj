@@ -46,15 +46,21 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\KnockOver.cs" />
      <Compile Include="Assets\Scripts\CameraFollow.cs" />
-     <Compile Include="Assets\Scripts\Citizen_Behavior.cs" />
-     <Compile Include="Assets\Scripts\Citizen_Restoration.cs" />
-     <Compile Include="Assets\Scripts\Citizen_SelfRestore.cs" />
+     <Compile Include="Assets\Scripts\Citizen\C_Behavior.cs" />
+     <Compile Include="Assets\Scripts\Citizen\C_FindClosest.cs" />
+     <Compile Include="Assets\Scripts\Citizen\C_Job_Builder.cs" />
+     <Compile Include="Assets\Scripts\Citizen\C_Job_Logger.cs" />
+     <Compile Include="Assets\Scripts\Citizen\C_Job_Miner.cs" />
+     <Compile Include="Assets\Scripts\Citizen\C_Job_None.cs" />
+     <Compile Include="Assets\Scripts\Citizen\C_Job_Warrior.cs" />
+     <Compile Include="Assets\Scripts\Citizen\C_MoveTo.cs" />
+     <Compile Include="Assets\Scripts\Citizen\C_RestoreStats.cs" />
+     <Compile Include="Assets\Scripts\DebugUtils.cs" />
+     <Compile Include="Assets\Scripts\KnockOver.cs" />
      <Compile Include="Assets\Scripts\SelectionSystem.cs" />
-     <Compile Include="Assets\Scripts\Worker.cs" />
+     <Compile Include="Assets\Scripts\TreeController.cs" />
      <Compile Include="Assets\Scripts\moveOnMouseClick.cs" />
-     <Compile Include="Assets\TreeController.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

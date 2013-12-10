@@ -6,7 +6,8 @@ public class moveOnMouseClick : MonoBehaviour {
 	private Vector3 destinationPosition;		// The destination Point
 	private float destinationDistance;			// The distance between myTransform and destinationPosition
 	private float moveSpeed;					// The Speed the character will move
- 
+	private Animator anim;
+
  	public float Move_Speed;
 	public int Mouse_Button;
 	public float Hit_Distance;
@@ -14,6 +15,7 @@ public class moveOnMouseClick : MonoBehaviour {
 	void Start () {
 		myTransform = transform;							// sets myTransform to this GameObject.transform
 		destinationPosition = myTransform.position;			// prevents myTransform reset
+		anim = GetComponent<Animator>();
 	}
  
 	void FixedUpdate () {
@@ -23,9 +25,11 @@ public class moveOnMouseClick : MonoBehaviour {
  
 		if(destinationDistance < .5f){		// To prevent shakin behavior when near destination
 			moveSpeed = 0;
+			anim.SetFloat("Speed",0);
 		}
 		else if(destinationDistance > .5f){			// To Reset Speed to default
 			moveSpeed = Move_Speed;
+			anim.SetFloat("Speed",1);
 		}
  
  

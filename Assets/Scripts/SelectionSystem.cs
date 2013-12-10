@@ -4,8 +4,7 @@ using System.Collections;
 public class SelectionSystem : MonoBehaviour {
 
 	public string Current_Selection = "Nothing";
-	
-	// Update is called once per frame
+
 	void FixedUpdate () {
 		if (Input.GetMouseButtonDown(0))
 		{
@@ -29,5 +28,6 @@ public class SelectionSystem : MonoBehaviour {
 		GUI.skin.label.alignment = TextAnchor.MiddleLeft;
 		GUI.Box (new Rect(10,10,428,23),"Right-click to move, Hold the Right Mouse Button to continuously move.");
 		GUI.Box (new Rect(10,35,250,23),"Current Selection: " + Current_Selection);
+		GUI.Box (new Rect(10,70,175,23),"Press '1' to spawn a citizen. ");
 	}
 }

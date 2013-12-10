@@ -1,11 +1,13 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Citizen_Behavior.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Citizen\C_Job_Logger.cs">
     <Files>
-      <File FileName="Assets\Scripts\Worker.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Citizen_Behavior.cs" Line="63" Column="24" />
-      <File FileName="Assets\Scripts\Citizen_SelfRestore.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Citizen_Restoration.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Citizen\C_Behavior.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Citizen\C_FindClosest.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Citizen\C_MoveTo.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Citizen\C_Job_Logger.cs" Line="37" Column="48" />
+      <File FileName="Assets\Scripts\TreeController.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Citizen\C_RestoreStats.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
